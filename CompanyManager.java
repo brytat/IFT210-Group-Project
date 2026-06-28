@@ -1,7 +1,5 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.SortedMap;
 
 public class CompanyManager {
     public static void main(String[] args) {
