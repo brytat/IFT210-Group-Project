@@ -48,18 +48,24 @@ public class CompanyManager {
                         if (validID) {
                             //set up sout for options of constructors
                             System.out.print(
-                                "-- Add Employee --\n" +
+                                "\n-- Add With Given Info --\n" +
+                                "0 - Exit\n" +
                                 "1 - Add ID\n" +
                                 "2 - Add ID and Name\n" +
                                 "3 - Add ID and Salary\n" +
                                 "4 - Add ID, Name, and Role\n" +
                                 "5 - Add ID, Name, and Salary\n" +
                                 "6 - Add ID, Name, Salary and Role\n" +
-                                "Enter option (1-6): "
+                                "Enter option (0-6): "
                             );
                             //set up switch for option selected for constructors
 
                             userInputInt = scnr.nextInt();
+
+                            if (userInputInt == 0) {
+                                break;
+                            }
+
 
                             Employee newEmployee = null;
                             String employeeName = "";
