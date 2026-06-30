@@ -61,18 +61,23 @@ public class CompanyManager {
 
                             userInputInt = scnr.nextInt();
 
+                            Employee newEmployee = null;
+                            String employeeName = "";
+                            double employeeSalary = 0.0;
+                            String employeeRole = "";
+
                             switch(userInputInt) {
                                 case 1:
                                   System.out.print("Enter employee ID: ");
                                   employeeID = scnr.next();
-                                  Employee newEmployee = new Employee(employeeID);
+                                  newEmployee = new Employee(employeeID);
                                   break;
                                 case 2:
                                     System.out.print("Enter employee ID: ");
                                     employeeID = scnr.next();
                                     scnr.nextLine();
                                     System.out.print("\nEnter employee name: ");
-                                    String employeeName = scnr.nextLine();
+                                    employeeName = scnr.nextLine();
                                     newEmployee = new Employee(employeeID, employeeName);
                                     break;
                                 case 3:
@@ -80,7 +85,7 @@ public class CompanyManager {
                                     employeeID = scnr.next();
                                     scnr.nextLine();
                                     System.out.print("\nEnter employee salary: ");
-                                    double employeeSalary = scnr.nextDouble();
+                                    employeeSalary = scnr.nextDouble();
                                     newEmployee = new Employee(employeeID, employeeSalary);
                                     break;
                                 case 4:
@@ -90,7 +95,7 @@ public class CompanyManager {
                                     System.out.print("\nEnter employee name: ");
                                     employeeName = scnr.nextLine();
                                     System.out.print("\nEnter employee role: ");
-                                    String employeeRole = scnr.nextLine();
+                                    employeeRole = scnr.nextLine();
                                     newEmployee = new Employee(employeeID, employeeName, employeeRole);
                                     break;
                                 case 5: 
