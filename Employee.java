@@ -9,10 +9,10 @@ ASU ID: ________________________
 */
 
 public class Employee {
-    String employeeID;
-    String employeeName = "No name on record";
-    String role = "Unassigned";
-    double salary = 0.00;
+    private String employeeID;
+    private String employeeName = "No name on record";
+    private String role = "Unassigned";
+    private double salary = 0.00;
 
     public Employee(String employeeID) {
         this.employeeID = employeeID;
