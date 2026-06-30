@@ -44,7 +44,8 @@ public class CompanyManager {
                             System.out.println("Invalid Employee ID: Employee ID already exists");
                             validID = false;
                             break;
-                        } else {
+                        } 
+                        if (validID) {
                             //set up sout for options of constructors
                             System.out.print(
                                 "-- Add Employee --\n" +
@@ -179,16 +180,63 @@ public class CompanyManager {
                     continue;
                 case 5:
                     System.out.println("Employee List:");
+
+                    System.out.printf(
+                            "%-13s", "| ID" +
+                            "%-13s", "| Name" +
+                            "%-13s", "| Role" +
+                            "%-11s", "| Salary"
+                        );
+
+                    System.out.println("-".repeat(50));
+
                     for (Employee employee : empList) {
-                        System.out.println(employee.getEmployeeName());
+                        String empID = employee.getEmployeeID();
+                        String empName = employee.getEmployeeName();
+                        String empRole = employee.getRole();
+                        double empSal = employee.getSalary();
+
+                        System.out.printf(
+                            "%-13s", "| ID" + empID +
+                            "%-13s", "| " + empName +
+                            "%-13s", "| " + empRole +
+                            "%-11.2f", "| " + empSal
+                        );
                     }
                     continue;
                 case 6:
                     System.out.println("Salary Report:");
+                    System.out.printf(
+                            "%-13s", "| ID" +
+                            "%-13s", "| Name" +
+                            "%-13s", "| Role" +
+                            "%-11s", "| Salary"
+                        );
+
+                    System.out.println("-".repeat(50));
+
+                    double totalSalary = 0.0;
+
                     for (Employee employee : empList) {
-                        System.out.print(employee.getEmployeeName() + ": ");
-                        System.out.println(employee.getSalary());
+                        String empID = employee.getEmployeeID();
+                        String empName = employee.getEmployeeName();
+                        String empRole = employee.getRole();
+                        double empSal = employee.getSalary();
+
+                        totalSalary += empSal;
+
+                        System.out.printf(
+                            "%-13s", "| ID" + empID +
+                            "%-13s", "| " + empName +
+                            "%-13s", "| " + empRole +
+                            "%-11.2f", "| " + empSal
+                        );
                     }
+
+                    System.out.println("-".repeat(50));
+
+                    System.out.printf("Total Salary: %.1f", totalSalary);
+
                     continue;
                 default:
                     System.out.println("Invalid option.");
