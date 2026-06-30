@@ -117,7 +117,7 @@ public class CompanyManager {
 
                             }
                         }
-                    continue;
+                    continue;}
                 case 2:
                     System.out.print("Enter employee ID: ");
                     employeeID = scnr.next();
@@ -178,10 +178,17 @@ public class CompanyManager {
                     }
                     continue;
                 case 5:
-                    //
+                    System.out.println("Employee List:");
+                    for (Employee employee : empList) {
+                        System.out.println(employee.getEmployeeName());
+                    }
                     continue;
                 case 6:
-                    //
+                    System.out.println("Salary Report:");
+                    for (Employee employee : empList) {
+                        System.out.print(employee.getEmployeeName() + ": ");
+                        System.out.println(employee.getSalary());
+                    }
                     continue;
                 default:
                     System.out.println("Invalid option.");
