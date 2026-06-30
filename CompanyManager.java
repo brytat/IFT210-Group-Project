@@ -46,7 +46,75 @@ public class CompanyManager {
                             break;
                         } else {
                             //set up sout for options of constructors
+                            System.out.print(
+                                "-- Add Employee --\n" +
+                                "1 - Add ID\n" +
+                                "2 - Add ID and Name\n" +
+                                "3 - Add ID and Salary\n" +
+                                "4 - Add ID, Name, and Role\n" +
+                                "5 - Add ID, Name, and Salary\n" +
+                                "6 - Add ID, Name, Salary and Role\n" +
+                                "Enter option (1-6): "
+                            );
                             //set up switch for option selected for constructors
+
+                            userInputInt = scnr.nextInt();
+
+                            switch(userInputInt) {
+                                case 1:
+                                  System.out.print("Enter employee ID: ");
+                                  employeeID = scnr.next();
+                                  Employee newEmployee = new Employee(employeeID);
+                                  break;
+                                case 2:
+                                    System.out.print("Enter employee ID: ");
+                                    employeeID = scnr.next();
+                                    scnr.nextLine();
+                                    System.out.print("\nEnter employee name: ");
+                                    String employeeName = scnr.nextLine();
+                                    newEmployee = new Employee(employeeID, employeeName);
+                                    break;
+                                case 3:
+                                    System.out.print("Enter employee ID: ");
+                                    employeeID = scnr.next();
+                                    scnr.nextLine();
+                                    System.out.print("\nEnter employee salary: ");
+                                    double employeeSalary = scnr.nextDouble();
+                                    newEmployee = new Employee(employeeID, employeeSalary);
+                                    break;
+                                case 4:
+                                    System.out.print("Enter employee ID: ");
+                                    employeeID = scnr.next();
+                                    scnr.nextLine();
+                                    System.out.print("\nEnter employee name: ");
+                                    employeeName = scnr.nextLine();
+                                    System.out.print("\nEnter employee role: ");
+                                    String employeeRole = scnr.nextLine();
+                                    newEmployee = new Employee(employeeID, employeeName, employeeRole);
+                                    break;
+                                case 5: 
+                                    System.out.print("Enter employee ID: ");
+                                    employeeID = scnr.next();
+                                    scnr.nextLine();
+                                    System.out.print("\nEnter employee name: ");
+                                    employeeName = scnr.nextLine();
+                                    System.out.print("\nEnter employee salary: ");
+                                    employeeSalary = scnr.nextDouble();
+                                    newEmployee = new Employee(employeeID, employeeName, employeeSalary);
+                                    break;
+                                case 6: 
+                                    System.out.print("Enter employee ID: ");
+                                    employeeID = scnr.next();
+                                    scnr.nextLine();
+                                    System.out.print("\nEnter employee name: ");
+                                    employeeName = scnr.nextLine();
+                                    System.out.print("\nEnter employee salary: ");
+                                    employeeSalary = scnr.nextDouble();
+                                    System.out.print("\nEnter employee role: ");
+                                    employeeRole = scnr.nextLine();
+                                    newEmployee = new Employee(employeeID, employeeName, employeeRole, employeeSalary);
+                                    break;
+
                             }
                         }
                     continue;
@@ -119,6 +187,8 @@ public class CompanyManager {
                     System.out.println("Invalid option.");
             }
         } while (userInputInt != 0);
+
         System.out.println("Exiting program!");
+        scnr.close();
     }
 }
