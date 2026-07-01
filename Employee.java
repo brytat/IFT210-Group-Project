@@ -1,11 +1,11 @@
 /*
-Team Name: ______________________
+Team Name: Team 16
 
 Member 1: Bryton Tateishi
 ASU ID: 1238285466
 
-Member 2: ______________________
-ASU ID: ________________________
+Member 2: Cris Farrell
+ASU ID: 1235833666
 */
 
 public class Employee {
