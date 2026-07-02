@@ -19,24 +19,26 @@ public class CompanyManager {
         boolean found = false;
         do {
             System.out.print(
-                    "--- Menu ---\n" +
-                    "0 - Exit\n" +
-                    "1 - Add Employee\n" +
-                    "2 - Remove Employee\n" +
-                    "3 - Update Employee Role\n" +
-                    "4 - Update Employee Salary\n" +
-                    "5 - Display Employee List\n" +
-                    "6 - Display Salary Report\n" +
-                    "Enter option (0-6): "
+                "--- Menu ---\n" +
+                "0 - Exit\n" +
+                "1 - Add Employee\n" +
+                "2 - Remove Employee\n" +
+                "3 - Update Employee Role\n" +
+                "4 - Update Employee Salary\n" +
+                "5 - Display Employee List\n" +
+                "6 - Display Salary Report\n" +
+                "Enter option (0-6): "
             );
 
             userInputInt = scnr.nextInt();
 
             switch (userInputInt) {
+                case 0:
+                    break;
                 case 1:
                     boolean validID = true;
                     String userInputID;
-                    System.out.print("Enter employee ID: ");
+                    System.out.print("Enter new employee ID: ");
                     userInputID = scnr.next();
                     for (Employee employee : empList) {
                         //O(n) runtime efficiency for search
@@ -44,11 +46,12 @@ public class CompanyManager {
                             System.out.println("Invalid Employee ID: Employee ID already exists");
                             validID = false;
                             break;
-                        } 
-                        if (validID) {
-                            //set up sout for options of constructors
-                            System.out.print(
-                                "\n-- Add With Given Info --\n" +
+                        }
+                    }
+                    if (validID) {
+                        System.out.print(
+                            //Options of constructors
+                            "\n-- Add With Given Info --\n" +
                                 "0 - Exit\n" +
                                 "1 - Add ID\n" +
                                 "2 - Add ID and Name\n" +
@@ -57,79 +60,56 @@ public class CompanyManager {
                                 "5 - Add ID, Name, and Salary\n" +
                                 "6 - Add ID, Name, Salary and Role\n" +
                                 "Enter option (0-6): "
-                            );
-                            //set up switch for option selected for constructors
-
-                            userInputInt = scnr.nextInt();
-
-                            if (userInputInt == 0) {
-                                break;
-                            }
-
-
-                            Employee newEmployee = null;
-                            String employeeName = "";
-                            double employeeSalary = 0.0;
-                            String employeeRole = "";
-
-                            switch(userInputInt) {
-                                case 1:
-                                  System.out.print("Enter employee ID: ");
-                                  employeeID = scnr.next();
-                                  newEmployee = new Employee(employeeID);
-                                  break;
-                                case 2:
-                                    System.out.print("Enter employee ID: ");
-                                    employeeID = scnr.next();
-                                    scnr.nextLine();
-                                    System.out.print("\nEnter employee name: ");
-                                    employeeName = scnr.nextLine();
-                                    newEmployee = new Employee(employeeID, employeeName);
-                                    break;
-                                case 3:
-                                    System.out.print("Enter employee ID: ");
-                                    employeeID = scnr.next();
-                                    scnr.nextLine();
-                                    System.out.print("\nEnter employee salary: ");
-                                    employeeSalary = scnr.nextDouble();
-                                    newEmployee = new Employee(employeeID, employeeSalary);
-                                    break;
-                                case 4:
-                                    System.out.print("Enter employee ID: ");
-                                    employeeID = scnr.next();
-                                    scnr.nextLine();
-                                    System.out.print("\nEnter employee name: ");
-                                    employeeName = scnr.nextLine();
-                                    System.out.print("\nEnter employee role: ");
-                                    employeeRole = scnr.nextLine();
-                                    newEmployee = new Employee(employeeID, employeeName, employeeRole);
-                                    break;
-                                case 5: 
-                                    System.out.print("Enter employee ID: ");
-                                    employeeID = scnr.next();
-                                    scnr.nextLine();
-                                    System.out.print("\nEnter employee name: ");
-                                    employeeName = scnr.nextLine();
-                                    System.out.print("\nEnter employee salary: ");
-                                    employeeSalary = scnr.nextDouble();
-                                    newEmployee = new Employee(employeeID, employeeName, employeeSalary);
-                                    break;
-                                case 6: 
-                                    System.out.print("Enter employee ID: ");
-                                    employeeID = scnr.next();
-                                    scnr.nextLine();
-                                    System.out.print("\nEnter employee name: ");
-                                    employeeName = scnr.nextLine();
-                                    System.out.print("\nEnter employee salary: ");
-                                    employeeSalary = scnr.nextDouble();
-                                    System.out.print("\nEnter employee role: ");
-                                    employeeRole = scnr.nextLine();
-                                    newEmployee = new Employee(employeeID, employeeName, employeeRole, employeeSalary);
-                                    break;
-
-                            }
+                        );
+                        userInputInt = scnr.nextInt();
+                        if ((userInputInt < 0) && (userInputInt > 6)) {
+                            System.out.println("Invalid selection");
+                            break;
                         }
-                    continue;}
+                        String employeeName;
+                        double employeeSalary;
+                        String employeeRole;
+
+                        switch (userInputInt) {
+                            case 1:
+                                new Employee(userInputID);
+                                break;
+                            case 2:
+                                System.out.print("\nEnter employee name: ");
+                                employeeName = scnr.next();
+                                empList.add(new Employee(userInputID, employeeName));
+                                break;
+                            case 3:
+                                System.out.print("\nEnter employee salary: ");
+                                employeeSalary = scnr.nextDouble();
+                                empList.add(new Employee(userInputID, employeeSalary));
+                                break;
+                            case 4:
+                                System.out.print("\nEnter employee name: ");
+                                employeeName = scnr.next();
+                                System.out.print("\nEnter employee role: ");
+                                employeeRole = scnr.next();
+                                empList.add(new Employee(userInputID, employeeName, employeeRole));
+                                break;
+                            case 5:
+                                System.out.print("\nEnter employee name: ");
+                                employeeName = scnr.next();
+                                System.out.print("\nEnter employee salary: ");
+                                employeeSalary = scnr.nextDouble();
+                                empList.add(new Employee(userInputID, employeeName, employeeSalary));
+                                break;
+                            case 6:
+                                System.out.print("\nEnter employee name: ");
+                                employeeName = scnr.next();
+                                System.out.print("\nEnter employee salary: ");
+                                employeeSalary = scnr.nextDouble();
+                                System.out.print("\nEnter employee role: ");
+                                employeeRole = scnr.next();
+                                empList.add(new Employee(userInputID, employeeName, employeeRole, employeeSalary));
+                                break;
+                        }
+                    }
+                    break;
                 case 2:
                     System.out.print("Enter employee ID: ");
                     employeeID = scnr.next();
@@ -147,7 +127,7 @@ public class CompanyManager {
                     if (!found) {
                         System.out.println("Employee not found.");
                     }
-                    continue;
+                    break;
                 case 3:
                     System.out.print("Enter employee ID: ");
                     employeeID = scnr.next();
@@ -168,7 +148,7 @@ public class CompanyManager {
                     if (!found) {
                         System.out.println("Employee not found.");
                     }
-                    continue;
+                    break;
                 case 4:
                     System.out.print("Enter employee ID: ");
                     employeeID = scnr.next();
@@ -188,19 +168,18 @@ public class CompanyManager {
                     if (!found) {
                         System.out.println("Employee not found.");
                     }
-                    continue;
+                    break;
                 case 5:
                     System.out.println("Employee List:");
 
                     System.out.printf(
-                            "%-13s", "| ID" +
-                            "%-13s", "| Name" +
-                            "%-13s", "| Role" +
-                            "%-11s", "| Salary"
-                        );
-
+                            "%-13s%-13s%-13s%-11s%n",
+                            "| ID",
+                            "| Name",
+                            "| Role",
+                            "| Salary"
+                    );
                     System.out.println("-".repeat(50));
-
                     for (Employee employee : empList) {
                         String empID = employee.getEmployeeID();
                         String empName = employee.getEmployeeName();
@@ -208,47 +187,42 @@ public class CompanyManager {
                         double empSal = employee.getSalary();
 
                         System.out.printf(
-                            "%-13s", "| ID" + empID +
-                            "%-13s", "| " + empName +
-                            "%-13s", "| " + empRole +
-                            "%-11.2f", "| " + empSal
+                                "%-13s%-13s%-13s%-11.2f%n",
+                                "| " + empID,
+                                "| " + empName,
+                                "| " + empRole,
+                                empSal
                         );
                     }
-                    continue;
+                    break;
                 case 6:
+                    double totalSalary = 0.0;
                     System.out.println("Salary Report:");
                     System.out.printf(
-                            "%-13s", "| ID" +
-                            "%-13s", "| Name" +
-                            "%-13s", "| Role" +
-                            "%-11s", "| Salary"
-                        );
-
+                        "%-13s%-13s%-13s%-11s%n",
+                        "| ID",
+                        "| Name",
+                        "| Role",
+                        "| Salary"
+                    );
                     System.out.println("-".repeat(50));
-
-                    double totalSalary = 0.0;
-
                     for (Employee employee : empList) {
                         String empID = employee.getEmployeeID();
                         String empName = employee.getEmployeeName();
                         String empRole = employee.getRole();
                         double empSal = employee.getSalary();
-
                         totalSalary += empSal;
-
                         System.out.printf(
-                            "%-13s", "| ID" + empID +
-                            "%-13s", "| " + empName +
-                            "%-13s", "| " + empRole +
-                            "%-11.2f", "| " + empSal
+                                "| %-10s| %-15s| %-11s| %10.2f%n",
+                                empID,
+                                empName,
+                                empRole,
+                                empSal
                         );
                     }
-
                     System.out.println("-".repeat(50));
-
-                    System.out.printf("Total Salary: %.1f", totalSalary);
-
-                    continue;
+                    System.out.printf("Total Salary: %.1f\n", totalSalary);
+                    break;
                 default:
                     System.out.println("Invalid option.");
             }

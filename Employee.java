@@ -10,7 +10,7 @@ ASU ID: 1235833666
 
 public class Employee {
     private String employeeID;
-    private String employeeName = "No name on record";
+    private String employeeName = "No name";
     private String role = "Unassigned";
     private double salary = 0.00;
 
@@ -18,7 +18,7 @@ public class Employee {
         this.employeeID = employeeID;
         System.out.printf("Employee created with:\n" +
             "   ID: %s\n" +
-            "   name: No name on record\n" +
+            "   name: No name\n" +
             "   role: Unassigned\n" +
             "   salary: $0.00/year.\n",
             employeeID
@@ -42,7 +42,7 @@ public class Employee {
         this.salary = salary;
         System.out.printf("Employee created with:\n" +
             "   ID: %s\n" +
-            "   name: No name on record\n" +
+            "   name: No name\n" +
             "   role: Unassigned\n" +
             "   salary: $%.2f/year.\n",
             employeeID,
